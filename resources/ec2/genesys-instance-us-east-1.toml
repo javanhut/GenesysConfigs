@@ -1,0 +1,14 @@
+provider = "aws"
+region = "us-east-1"
+
+[resources]
+
+[[resources.compute]]
+name = "genesys-instance-us-east-1"
+type = "t3.micro"
+image = "amazon-linux"
+count = 1
+
+[policies]
+require_encryption = false
+no_public_instances = true

@@ -1,0 +1,30 @@
+[metadata]
+  name = "vem-upload-lambda-on-call"
+  runtime = "provided.al2023"
+  handler = "bootstrap"
+  description = "Lambda function vem-upload-lambda-on-call created with Genesys"
+
+[build]
+  source_path = "/home/javanhut/Development/TestGenesys/Vem/internal/terminal"
+  build_method = "podman"
+  layer_auto = true
+
+[function]
+  memory_mb = 512
+  timeout_seconds = 30
+
+[deployment]
+  function_url = true
+  cors_enabled = true
+  auth_type = "AWS_IAM"
+  architecture = "arm64"
+
+[iam]
+  role_name = "genesys-lambda-vem-upload-lambda-on-call"
+  role_arn = "arn:aws:iam::859885917020:role/genesys-lambda-vem-upload-lambda-on-call"
+  required_policies = ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]
+  auto_manage = true
+  auto_cleanup = true
+  managed_by = "genesys"
+  [iam.policy_details]
+    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole" = "Basic CloudWatch Logs access"

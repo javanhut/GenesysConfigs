@@ -1,0 +1,15 @@
+provider = "aws"
+region = "us-east-1"
+
+[resources]
+
+[[resources.storage]]
+name = "ivaldi-tested-bucket-us-east-1"
+type = "bucket"
+versioning = false
+encryption = false
+public_access = false
+
+[policies]
+require_encryption = false
+no_public_buckets = true
